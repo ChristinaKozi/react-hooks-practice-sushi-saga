@@ -1,20 +1,25 @@
 import React from "react";
 
-function Sushi(props) {
+function Sushi({ sushi, eatSushi }) {
+
+  const {id, name, img_url, price } = sushi
+
   return (
     <div className="sushi">
-      <div className="plate" onClick={/* Give me a callback! */ null}>
+      <div className="plate" onClick={eatSushi}>
         {/* Tell me if this sushi has been eaten! */}
-        {false ? null : (
+        {sushi.eaten ? null : (
           <img
-            src={/* Give me an image source! */ null}
-            alt={/* Give me a name! */ "Sushi"}
+            id={id}
+            src={img_url}
+            alt={name}
             width="100%"
+            data-price={price}
           />
         )}
       </div>
       <h4 className="sushi-details">
-        {/* Give me a name! */} - ${/* Give me a price! */}
+        {name} - ${price}
       </h4>
     </div>
   );
